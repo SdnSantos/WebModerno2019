@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Overflow</title>
+    <style>
+        div {
+            font-size: 60px;
+            height: 100px;
+            width: 260px;
+            border: solid 3px;
+            /* hidden tudo que der overflow não aparecerá */
+            overflow: hidden;
+            /* scroll aparecerá a barra de arraste */
+            overflow: scroll;
+            /* scroll aparecerá a barra de arraste apenas no eixo x */
+            /* overflow-x: scroll; */
+            /* scroll aparecerá a barra de arraste apenas no eixo y */
+            /* overflow-y: scroll; */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- o texto abaixo está tudo junto para não gerar a quebra de linha -->
+        TudoFuncionaMuitoBemEmCSS!!! Texto muito grande para caber nessa div. Já pensou qual será o comportamento padrão?
+    </div>
+</body>
+
+</html>

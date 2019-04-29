@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>BI</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        div {
+            border: solid 2px dodgerblue;
+            font-size: 40px;
+            margin: 5px;
+        }
+        
+        .flex-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            min-height: 97vh;
+        }
+        
+        .d2 {
+            grid-column-start: 2;
+            grid-column-end: 4;
+        }
+        
+        .d4 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        
+        .d5 {
+            grid-column-start: 3;
+            grid-column-end: 5;
+        }
+        
+        .d7 {
+            grid-column-start: 2;
+            grid-column-end: 4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="d1">1</div>
+        <div class="d2">2</div>
+        <div class="d3">3</div>
+        <div class="d4">4</div>
+        <div class="d5">5</div>
+        <div class="d6">6</div>
+        <div class="d7">7</div>
+        <div class="d8">8</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #02</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        div {
+            border: solid 5px dodgerblue;
+            font-size: 40px;
+        }
+        
+        .flex-container div {
+            /* border-box considera a borda no tamanho da caixa */
+            box-sizing: border-box;
+            width: 100px;
+            flex-grow: 1;
+        }
+        
+        .flex-container {
+            display: flex;
+            height: 300px;
+            width: 300px;
+            flex-shrink: 1;
+        }
+        
+        .flex-container div:nth-child(3) {
+            background-color: indianred;
+            /* ORDER - QUANDO QUERO DAR UM VALOR OU PESO PARA UMA TAG E MUDAR DE POSIÇÃO */
+            /* O PADRÃO É ZERO, -1 VAI PARA O COMEÇO E 1 PARA O FIM */
+            /* vai para o final */
+            order: 1;
+            /* ordem normal, pois o valor padrão é zero */
+            order: 0;
+            /* vai para o início */
+            order: -1;
+            /*  alinhamento vertical no cross axios */
+            align-self: center;
+            align-self: flex-end;
+            align-self: flex-start;
+            align-self: stretch;
+        }
+        
+        .flex-container div:nth-child(1) {
+            /* AUMENTAR PROPORCIONALMENTE */
+            flex-grow: 2;
+            /* ENCOLHER PROPORCIONALMENTE */
+            flex-shrink: 5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container tag nolabel">
+        <div class="tag nolabel">1</div>
+        <div class="tag nolabel">2</div>
+        <div class="tag nolabel">3</div>
+        <div class="tag nolabel">4</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

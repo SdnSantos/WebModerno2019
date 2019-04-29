@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Origem CSS: Externo, Interno e Inline</title>
+    <style>
+        body {
+            background-color: aquamarine;
+        }
+    </style>
+
+    <!-- a preferência é do que for executado por último -->
+    <link rel="stylesheet" href="css/externo.css">
+</head>
+
+<!-- não é recomendado colocar styles inline -->
+<!-- css inline tem maior peso que os outros (especificidade maior) -->
+
+<body style="background-color:coral;">
+    <h1>E agora?</h1>
+</body>
+
+</html>

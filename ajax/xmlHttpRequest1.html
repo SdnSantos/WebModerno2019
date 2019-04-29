@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>XMLHttpRequest #01</title>
+    <link rel="stylesheet" href="css/estilo.css" />
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <!-- MÉTODO AJAX -->
+    <!-- PARÂMETROS -->
+    <!-- 1º URL -->
+    <!-- 2º MÉTODO DE SUCESSO -->
+    <!-- 3º MÉTODO DE ERRO -->
+    <script>
+        function ajax(config) {
+            const xhr = new XMLHttpRequest();
+            // 1º URL
+            // xhr.open("GET", config.url, true)
+            // true significa que é uma requisição assíncrona
+            xhr.open(config.metodo, config.url, true);
+
+            xhr.onload = e => {
+                if (xhr.status === 200) {
+                    // 2º MÉTODO DE SUCESSO
+                    config.sucesso(xhr.response);
+                } else if (xhr.status >= 400) {
+                    // 3º MÉTODO DE ERRO
+                    config.erro({
+                        codigo: xhr.status,
+                        texto: xhr.statusText
+                    });
+                }
+            };
+            xhr.send();
+        }
+
+        function criarTabela(estados) {
+            //  map está transformando cada objeto de estado em uma table-row
+            const linhas = estados.map(estado => {
+                // criando a coluna estado
+                const tdId = document.createElement("td");
+                tdId.innerHTML = estado.id;
+
+                // criando a coluna nome do estado
+                const tdNome = document.createElement("td");
+                tdNome.innerHTML = estado.nome;
+
+                // criando a coluna id do estado
+                const tdSigla = document.createElement("td");
+                tdSigla.innerHTML = estado.sigla;
+
+                // criando a linha da tabela
+                const tr = document.createElement("tr");
+
+                // adicionando as células a linha
+                tr.appendChild(tdId);
+                tr.appendChild(tdNome);
+                tr.appendChild(tdSigla);
+
+                return tr;
+            });
+
+            // povoando a tabela
+            const tabela = document.createElement("table");
+            //  adicionando as linhas a tabela
+            linhas.forEach(linha => tabela.appendChild(linha));
+            // adicionando a tabela no body
+            document.body.appendChild(tabela);
+        }
+
+        ajax({
+            url: "dados/estados.json",
+            metodo: "get",
+            sucesso(resposta) {
+                const estados = JSON.parse(resposta);
+
+                criarTabela(estados);
+            },
+            erro(e) {
+                const msg = document.createTextNode(`${e.codigo}: ${e.texto}`);
+                document.body.appendChild(msg);
+            }
+        });
+    </script>
+</body>
+
+</html>

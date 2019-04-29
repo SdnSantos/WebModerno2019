@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #01</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        div {
+            border: solid 5px dodgerblue;
+            font-size: 40px;
+            margin: 5px;
+        }
+        
+        .big {
+            /* 1.5em significa que a fonte ficará 50% maior que as outras */
+            font-size: 1.5em;
+        }
+        
+        .flex-container {
+            /* aqui estou transformando a class em um flex container */
+            display: flex;
+            flex-direction: column;
+            flex-direction: column-reverse;
+            /* inverte os itens do último para o primeiro e faz um float: right */
+            /* fica da direita para a esquerda */
+            flex-direction: row-reverse;
+            /* PADRÃO */
+            flex-direction: row;
+            /* acontece um overflow */
+            width: 50%;
+            /* QUEBRA LINHA - nowrap é o padrão que seria não quebrar */
+            flex-wrap: wrap;
+            flex-wrap: wrap-reverse;
+            /* flex flow é a união do flex-direction com o flex-wrap */
+            flex-flow: row wrap;
+            height: 200px;
+            flex-flow: column-reverse wrap;
+            flex-flow: row wrap;
+            /* MAIN AXES */
+            /* justify-content serve para alinhar os flex-itens */
+            /* COMEÇARA DA ESQUERDA PARA DIREITA PELO TOPO*/
+            justify-content: flex-start;
+            /* COMEÇARA DA DIREITA PARA ESQUERDA PELO TOPO */
+            justify-content: flex-end;
+            justify-content: center;
+            /* DIVIDIRÁ OS ESPAÇOS COM OS ITENS DO CONTAINER */
+            justify-content: space-around;
+            /* DIVIDIRÁ OS ESPAÇOS APENAS NO MEIO */
+            justify-content: space-between;
+            /* CROSS AXIS */
+            height: 400px;
+            /* PADRÃO - ESTICAR OS ITENS */
+            align-items: stretch;
+            /* ALINHA PELA BASE DAS FONTES */
+            align-items: baseline;
+            /* ALINHA PELA BORDA SUPERIOR */
+            align-items: flex-start;
+            /* ALINHA PELA BORDA INFERIOR */
+            align-items: flex-end;
+            /* ALINHA PELO CENTRO */
+            align-items: center;
+            /* MAIS DE UMA LINHA */
+            align-content: flex-start;
+            align-content: flex-end;
+            align-content: center;
+            align-content: space-around;
+            align-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container tag nolabel">
+        <div class="tag nolabel">1</div>
+        <div class="tag nolabel">2</div>
+        <div class="tag nolabel big">3</div>
+        <div class="tag nolabel">4</div>
+        <div class="tag nolabel">5</div>
+        <div class="tag nolabel">6</div>
+        <div class="tag nolabel">7</div>
+        <div class="tag nolabel">8</div>
+        <div class="tag nolabel">9</div>
+        <div class="tag nolabel">10</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

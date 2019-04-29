@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicios HTML</title>
+    <style>
+        #conteudo {
+            /* espaçamento superior: 30px  */
+            padding: 30px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Exercicios HTML (Cabecalho)</h1>
+    </header>
+    <nav>
+        <a href="exercicios/teste.html">00 - Teste (Corpo)</a>
+        <a href="exercicios/listaAninhada.html">04 - Lista Aninhada</a>
+        <a href="exercicios/links.html">05 - Links</a>
+    </nav>
+    <section id="conteudo"></section>
+    <footer>
+        Curso de Web Moderno (Rodape)
+    </footer>
+    <script>
+        //Interceptar o click do evento
+        document.querySelectorAll('a').forEach(link => {
+
+            const conteudo = document.getElementById('conteudo')
+
+            link.onclick = function(e) {
+                // Vai prevenir que a ação padrão do link seja executada
+                e.preventDefault()
+
+                // Requisição AJAX
+                // Assim que a promisse for resolvida vai para .then
+                fetch(link.href)
+                    // Retorna outra promisse
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</body>
+
+</html>
